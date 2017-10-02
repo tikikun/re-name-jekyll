@@ -41,11 +41,12 @@ def prepare_the_file(filename):
 
 def main():
     parser = argparse.ArgumentParser(description='Process a file name.')
-    parser.add_argument('filename', type=str,
+    parser.add_argument('filenames', type=str, nargs='+',
                         help='Input the name of your post')
     args = parser.parse_args()
-    filename = args.filename
-    prepare_the_file(filename)
+    filenames = args.filenames
+    for filename in filenames:
+        prepare_the_file(filename)
 
 
 if __name__ == '__main__':
